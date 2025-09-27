@@ -281,6 +281,26 @@ img{max-width:100%;display:block}
 .pet-stage{ position:absolute; right:-4%; bottom:-2%; width:28%; height:28%; display:none; z-index:2; }
 .pet-stage.on{ display:block }
 .char-name{ text-align:center; font-weight:800; letter-spacing:.3px; }
+/* floating chip right of avatar */
+.xp-float.right-of-avatar{
+  left: auto;
+  right: -10px;
+  bottom: 22%;
+  transform: none;
+  animation: riseRight 1800ms ease forwards;
+  z-index: 5;
+}
+
+@keyframes riseRight{
+  0%   { opacity: 0; transform: translate(6px, 10px) scale(.9); }
+  15%  { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(22px, -60px) scale(.95); }
+}
+
+
+
+
+
 
 /* Controls */
 .select, .btn, input[type="text"], input[type="number"], select{
