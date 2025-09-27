@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no"/>
+  <title>Asymptopia — My Character</title>
+  <link rel="stylesheet" href="./style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-inner">
+      <a class="brand" href="./index.html">Asymptopia</a>
+      <nav class="nav">
+        <a class="nav-link" href="./index.html">Home</a>
+        <a class="nav-link active" href="./creator.html">My Character</a>
+        <a class="nav-link" href="./settings.html">Pets/Theme</a>
+        <a class="nav-link" href="./about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="creator-wrap">
+    <section class="creator-card card">
+      <h1>Customize Character</h1>
+      <p class="muted">Choose your preset!</p>
+
+      <div class="creator-grid">
+        <div class="preview">
+          <div id="creatorPreview" class="preview-window"></div>
+          <div class="char-name creator-name"><input id="name" type="text" maxlength="24" placeholder="Name e.g., Nova"/></div>
+        </div>
+
+        <form id="creatorForm" class="controls" autocomplete="off">
+          <div class="row">
+            <!-- <span>---</span> -->
+            <div id="avatarGrid" class="avatar-grid"></div>
+          </div>
+
+          <!-- From assets folder (renders your 3 GIF models) -->
+          <div class="row">
+            
+            <!-- <span>Choose a sprite!</span> <p class="note">Folder: <code>./CharacterAssets/</code></p> -->
+            <div id="assetGrid" class="avatar-grid"></div>
+          </div>
+
+          <!-- Upload option removed per request -->
+
+          <div class="row">
+            
+            </label>
+            
+          </div>
+
+          <div class="creator-actions">
+            <a class="btn" href="./index.html">Cancel</a>
+            <button id="saveReturn" class="btn btn-primary" type="submit">Save & Return</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Keep gifuct-js only if you later re-enable GIF→sprite conversion -->
+  <!-- <script src="https://unpkg.com/gifuct-js/dist/gifuct.min.js"></script> -->
+  <script type="module" src="./creator.js"></script>
+</body>
+</html>
