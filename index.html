@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <!-- Mobile viewport hardened for device preview & safe-areas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no"/>
+  <title>Asymptopia — Home</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="./style.css"/>
+
+  <!-- MathJax for LaTeX -->
+  <script>
+    window.MathJax = { tex: { inlineMath: [['\\(','\\)'], ['$', '$']], displayMath: [['\\[','\\]']] } };
+  </script>
+  <script async id="mathjax" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <!-- App Bar -->
+  <header class="appbar">
+    <div class="appbar-inner">
+      <a class="brand" href="./index.html">Asymptopia</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-link active" href="./index.html">Home</a>
+        <a class="nav-link" href="./creator.html">My Character</a>
+        <a class="nav-link" href="./settings.html">Pets/Theme</a>
+        <a class="nav-link" href="./about.html">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <section class="stage card">
+      <div class="hud-top">
+        <!-- RPG XP bar centered above avatar -->
+        <div class="xp-hud">
+          <div class="xp-title">Level <span id="hudLevel">1</span> • <span id="hudXP">0</span> XP</div>
+          <div class="xp-rail" id="xpRail">
+            <div id="xpBar" class="xp-bar"></div>
+            <div id="xpPulse" class="xp-pulse"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="avatar-area">
+        <!-- Loot box (left) -->
+        <a id="lootLink" class="loot-box" href="./loot.html" title="Open loot">
+          <div class="loot-art"></div>
+          <div class="loot-count">x<span id="lootCount">0</span></div>
+        </a>
+
+        <!-- Avatar Window (center, 30% smaller) -->
+        <div class="avatar-window">
+          <div id="avatarBG" class="avatar-bg"></div>
+          <div id="pixelCharContainer" class="avatar-stage" aria-label="User avatar"></div>
+          <div id="petStage" class="pet-stage" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Character name under avatar -->
+      <div class="char-name">
+        <span id="hudPlayerName">Player</span>
+      </div>
+
+      <div class="stage-controls">
+        <label class="stack">
+          <!--   <span class="label">---</span>    -->
+          
+          <select id="topicSelect" class="select"></select>
+        </label>
+      </div>
+    </section>
+
+    <!-- Problem Panel (bottom drawer on mobile; inline desktop) -->
+    <section id="drawer" class="drawer card">
+      <div class="prob-head">
+        <!--  <h2>Solving...</h2>
+        <div class="streak">Streak: <span id="streakVal">0</span></div>-->
+      </div>
+
+      <div id="questionPrompt" class="prompt pretty">Pick a topic to begin</div>
+
+      <div class="answer-row">
+        <!-- Device keyboard is suppressed; use on-screen keyboard -->
+        <input id="answerInput" type="text" inputmode="none" readonly
+               placeholder="Type your answer… e.g., 3/4, DNE, ∞, y=2x-3"/>
+      </div>
+
+      <div class="actions">
+        <button id="checkBtn" class="btn btn-primary">Check</button>
+        <button id="nextBtn" class="btn btn-ghost">Next</button>
+        <button id="difficultyBtn" class="btn btn-ghost" title="Cycle difficulty">Easy</button>
+        <button id="kbdToggle" class="btn btn-ghost only-mobile" aria-expanded="false" aria-controls="kbd">Keyboard</button>
+      </div>
+
+      <div id="feedback" class="feedback"></div>
+
+      <!-- On-screen keyboard -->
+      <div id="kbd" class="kbd">
+        <div class="kbd-grid">
+          <button data-ins="7">7</button><button data-ins="8">8</button><button data-ins="9">9</button>
+          <button data-ins="(">(</button><button data-ins=")">)</button><button data-ins="^">^</button>
+          <button data-ins="4">4</button><button data-ins="5">5</button><button data-ins="6">6</button>
+          <button data-ins="+">+</button><button data-ins="-">-</button><button data-ins="±">±</button>
+          <button data-ins="1">1</button><button data-ins="2">2</button><button data-ins="3">3</button>
+          <button data-ins="*">*</button><button data-ins="/">/</button><button data-ins="=">=</button>
+          <button data-ins="0" class="wide">0</button><button data-ins=".">.</button>
+          <button data-ins="x">x</button><button data-ins="y">y</button><button data-ins="∞">∞</button><button data-ins="-∞">-∞</button>
+          <button data-ins="DNE" class="accent">DNE</button>
+          <button id="kbdBack" class="danger">⌫</button>
+          <button id="kbdClear" class="danger">Clear</button>
+          <!-- <button id="kbdEnter" class="primary">Check</button> -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <small>© <span id="year"></span> Asymptopia</small>
+  </footer>
+
+  <template id="xpFloatTpl"><div class="xp-float">+<span></span> XP</div></template>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
